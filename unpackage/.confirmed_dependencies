@@ -1,0 +1,59 @@
+{
+	"tab-index.html": {
+		"resources": [
+			"images/cbd.jpg",
+			"images/muwu.jpg",
+			"images/yuantiao.jpg",
+			"images/shuijiao.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"tab2-cbd.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"tab-index.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"tab-index.html",
+			"tab-find.html",
+			"tab-my.html",
+			"tab-news.html"
+		]
+	},
+	"tab-news.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"js/mui.pullToRefresh.js",
+			"js/mui.pullToRefresh.material.js"
+		],
+		"refer": []
+	},
+	"tab-my.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"css/feedback.css",
+			"js/feedback.js",
+			"js/mui.view.js",
+			"images/logo.png"
+		]
+	},
+	"tab-find.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		]
+	}
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+    </script>
+    <style>
+		html,
+		body {
+			background-color: #efeff4;
+		}
+		.mui-bar .mui-pull-left .mui-icon {
+			padding-right: 5px;
+			font-size: 28px;
+		}
+		.mui-bar .mui-btn {
+			font-weight: normal;
+			font-size: 17px;
+		}
+		.mui-bar .mui-btn-link {
+			top: 1px;
+		}
+		/**/
+		.mui-active{
+			margin-top:10px;
+		}
+		
+		.mui-card .mui-control-content {
+			padding: 10px;
+		}
+		
+		.mui-control-content {
+			height: 40px;
+		}
+		.mui-control-content2 {
+			height: 90px;
+		}
+		.margin{
+			margin-right: 10px;
+			color:dodgerblue
+		}
+	</style>
+</head>
+<body>
+	<div class="mui-content">   
+		<div id="item1" class="mui-control-content mui-active">
+			<div id="scroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<span class='mui-icon mui-icon-pengyouquan margin'></span>
+							朋友圈
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="item1" class="mui-control-content mui-control-content2 mui-active">
+			<div id="scroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<span class='mui-icon mui-icon-chatboxes margin'></span>
+							扫一扫
+						</li>
+						<li class="mui-table-view-cell">
+							<span class='mui-icon mui-icon-spinner mui-spin margin'></span>
+							摇一摇
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="item1" class="mui-control-content mui-active mui-control-content2">
+			<div id="scroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<span class='mui-icon mui-icon-home margin'></span>
+							购物
+						</li>
+						<li class="mui-table-view-cell">
+							<span class='mui-icon mui-icon-qq margin'></span>
+							游戏
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mui-content-padded">
+			<p>
+				<a href="#picture" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">
+					<span class=''>拍照</span>
+					<span class='mui-icon mui-icon-camera margin'></span>
+				</a>
+			</p>
+		</div>
+
+		<div id="delete" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#" style="color: #FF3B30;">删除信息</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#delete"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		<div id="forward" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">回复</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">转发</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">打印</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#forward"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">拍照或录像</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">选取现有的</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		<a class="mui-tab-item" href="#delete">
+			<span class="mui-icon mui-icon-trash"></span>
+		</a>
+		<a class="mui-tab-item" href="#">
+		</a>
+		<a class="mui-tab-item" href="#">
+		</a>
+		<a class="mui-tab-item" href="#forward">
+			<span class="mui-icon mui-icon-undo"></span>
+		</a>
+		<p id="info"></p>
+	</div>
+	
+	<script>
+	
+		(function ($){
+			mui('body').on('shown', '.mui-popover', function(e) {
+			//console.log('shown', e.detail.id);//detail为当前popover元素
+			});
+			mui('body').on('hidden', '.mui-popover', function(e) {
+				//console.log('hidden', e.detail.id);//detail为当前popover元素
+			});
+			var info = document.getElementById("info");
+			mui('body').on('tap', '.mui-popover-action li>a', function() {
+				var a = this,
+					parent;
+				//根据点击按钮，反推当前是哪个actionsheet
+				for (parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+					if (parent.classList.contains('mui-popover-action')) {
+						break;
+					}
+				}
+				//关闭actionsheet
+				mui('#' + parent.id).popover('toggle');
+				info.innerHTML = "你刚点击了\"" + a.innerHTML + "\"按钮";
+			})
+		})(mui)
+		
+	</script>
+	
+</body>
+</html>
